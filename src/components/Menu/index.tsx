@@ -2,7 +2,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 
 const Menu = () => {
   return (
-    <View className="flex-row gap-5 my-0">
+    <View className="flex-row gap-5 my-0 mb-3">
       <TouchableOpacity>
         <Text className="text-xs">Todos</Text>
       </TouchableOpacity>

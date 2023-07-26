@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 
 const Header = () => {
   return (
@@ -10,7 +10,13 @@ const Header = () => {
         </Text>
       </View>
 
-      <View className="bg-purple-600 w-8 h-8 rounded-full"></View>
+      <View className="bg-indigo-500 w-12 h-12 rounded-full">
+        <Image
+          source={{ uri: "https://github.com/jardeson777.png" }}
+          width={48}
+          height={48}
+        />
+      </View>
     </View>
   );
 };
