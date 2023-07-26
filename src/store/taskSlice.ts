@@ -7,14 +7,14 @@ export interface TaskState {
 }
 
 const initialState: TaskState = {
-  tasks: [],
+  tasks: [{ id: "1", status: true, title: "title" }],
 };
 
 export const taskSlice = createSlice({
   name: "task",
   initialState,
   reducers: {
-    changeStatus: (state, { payload: id }: PayloadAction<number>) => {
+    changeStatusTask: (state, { payload: id }: PayloadAction<string>) => {
       state.tasks = state.tasks.map(task => {
         if (task.id === id) {
           return {
@@ -25,9 +25,13 @@ export const taskSlice = createSlice({
         return task;
       });
     },
+
+    createTask: (state, { payload: task }: PayloadAction<Task>) => {
+      state.tasks = [...state.tasks, task];
+    },
   },
 });
 
-export const { changeStatus } = taskSlice.actions;
+export const { changeStatusTask, createTask } = taskSlice.actions;
 
 export default taskSlice.reducer;
