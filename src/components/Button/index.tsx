@@ -4,12 +4,18 @@ import { tv, VariantProps } from "tailwind-variants";
 const ButtonStyle = tv({
   variants: {
     variant: {
-      circle:
-        "bg-violet-800 w-16 h-16 rounded-full justify-center items-center",
+      circle: "w-16 h-16 rounded-full justify-center items-center",
+      default: "w-full h-12 justify-center items-center rounded-full",
     },
     color: {
-      primary: "",
+      primary: "bg-violet-800",
     },
+    disabled: {
+      true: "bg-gray-400",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
   },
 });
 
@@ -19,12 +25,13 @@ const Button = ({
   children,
   variant,
   color,
+  disabled,
   className,
   ...rest
 }: ButtonType) => {
   return (
     <TouchableOpacity
-      className={ButtonStyle({ variant, color, className })}
+      className={ButtonStyle({ variant, color, className, disabled })}
       {...rest}>
       {children}
     </TouchableOpacity>

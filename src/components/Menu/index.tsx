@@ -4,7 +4,7 @@ const Menu = () => {
   return (
     <View className="flex-row gap-5 my-0 mb-3">
       <TouchableOpacity>
-        <Text className="text-xs">Todos</Text>
+        <Text className="text-xs text-purple-600">Todos</Text>
       </TouchableOpacity>
 
       <TouchableOpacity>

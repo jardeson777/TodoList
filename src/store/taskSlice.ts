@@ -7,7 +7,7 @@ export interface TaskState {
 }
 
 const initialState: TaskState = {
-  tasks: [{ id: "1", status: true, title: "title" }],
+  tasks: [{ id: "1", status: true, title: "Fazer App para praticar redux" }],
 };
 
 export const taskSlice = createSlice({

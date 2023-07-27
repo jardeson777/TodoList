@@ -2,12 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Task } from "../../modules/Task";
 import { RootState } from "../task.store";
 import { changeStatusTask, createTask } from "../taskSlice";
-import { v4 as uuidv4 } from "uuid";
+import uuid from "react-native-uuid";
 
 type StoreTaskAdapterType = {
   tasks: Task[];
   changeStatus: (id: string) => void;
-  create: (task: Task) => void;
+  create: (task: Omit<Task, "id">) => void;
 };
 
 export const storeTaskAdapter = (): StoreTaskAdapterType => {
@@ -19,7 +19,7 @@ export const storeTaskAdapter = (): StoreTaskAdapterType => {
   };
 
   const create = (task: Omit<Task, "id">) => {
-    const id = uuidv4();
+    const id = uuid.v4() as string;
 
     dispatch(createTask({ ...task, id }));
   };

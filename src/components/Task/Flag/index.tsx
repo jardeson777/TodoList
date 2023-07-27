@@ -1,4 +1,9 @@
-import { TouchableOpacity, TouchableOpacityProps, View } from "react-native";
+import {
+  Text,
+  TouchableOpacity,
+  TouchableOpacityProps,
+  View,
+} from "react-native";
 import { tv, VariantProps } from "tailwind-variants";
 
 const FlagStyle = tv({
@@ -13,7 +18,7 @@ const FlagStyle = tv({
 });
 
 const BorderStyle = tv({
-  base: "h-3 w-3 border-2 rounded-sm",
+  base: "h-5 w-5 border-2 rounded-sm justify-center items-center",
 
   variants: {
     checked: {
@@ -31,7 +36,9 @@ const Flag = ({ checked = false, ...rest }: StyleProps) => {
       className="h-7 w-8 justify-center flex-row-reverse items-center"
       {...rest}>
       <View className={FlagStyle({ checked })} style={{ width: 2 }} />
-      <View className={BorderStyle({ checked })}></View>
+      <View className={BorderStyle({ checked })}>
+        <Text style={{ transform: [{ translateY: -2.5 }] }}>v</Text>
+      </View>
     </TouchableOpacity>
   );
 };
